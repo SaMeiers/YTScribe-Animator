@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YTScribe Animator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="header-title">
+                <h1>YTScribe Animator</h1>
+                <p class="tagline">Programa de animación para subtítulos de YouTube</p>
+            </div>
+            <div class="header-controls">
+                <button id="playBtn" class="btn">Reproducir</button>
+                <button id="infoBtn" class="btn btn-secondary">ℹ️ Info</button>
+            </div>
+        </header>
+        
+        <div class="content">
+            <div class="canvas-container">
+                <div class="canvas-info">
+                    <span>Tablero: 40×12 píxeles (máximo YouTube)</span>
+                    <span id="cursorPosition">Posición: 0,0</span>
+                </div>
+                <div class="canvas-grid" id="canvasGrid">
+                   
+                </div>
+            </div>
+            
+            <div class="controls-panel">
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="tools">Herramientas</button>
+                    <button class="tab-btn" data-tab="palettes">Colores</button>
+                    <button class="tab-btn" data-tab="frames">Frames</button>
+                    <button class="tab-btn" data-tab="export">Exportar</button>
+                </div>
+                
+                <div id="tools-tab" class="tab-content active">
+                    <div class="panel-section">
+                        <div class="tool-options">
+                            <div class="tool active" data-tool="pencil">
+                                <span class="icon icon-pencil"></span>
+                                Pincel
+                            </div>
+                            <div class="tool" data-tool="eraser">
+                                <span class="icon icon-eraser"></span>
+                                Goma
+                            </div>
+                            <div class="tool" data-tool="picker">
+                                <span class="icon icon-picker"></span>
+                                Selector
+                            </div>
+                            <div class="tool" data-tool="bucket">
+                                <span class="icon icon-bucket"></span>
+                                Cubeta
+                            </div>
+                        </div>
+                        
+                        <div class="panel-title">
+                            <h3>Tamaño del pincel</h3>
+                        </div>
+                        <div class="brush-sizes">
+                            <div class="brush-size active" data-size="1">1</div>
+                            <div class="brush-size" data-size="3">3</div>
+                            <div class="brush-size" data-size="5">5</div>
+                        </div>
+                    </div>
+                    
+                    <div class="panel-section">
+                        <div class="panel-title">
+                            <h3>Carácter actual</h3>
+                        </div>
+                        <input type="text" maxlength="1" class="char-input" value="@" id="charInput">
+                    </div>
+                </div>
+                
+                <div id="palettes-tab" class="tab-content">
+                    <div class="panel-section">
+                        <div class="panel-title">
+                            <h3>Paletas de colores</h3>
+                            <span id="currentColor" style="display:inline-block;width:20px;height:20px;background:#ffffff;border-radius:3px;"></span>
+                        </div>
+                        <div class="palettes">
+                            <div class="palette active" data-palette="normal">Normal</div>
+                            <div class="palette" data-palette="neon">Neón</div>
+                            <div class="palette" data-palette="pastel">Pastel</div>
+                        </div>
+                        <div class="color-grid" id="colorGrid">
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="frames-tab" class="tab-content">
+                    <div class="panel-section">
+                        <div class="panel-title">
+                            <h3>Administrar frames</h3>
+                        </div>
+                        <div class="time-control">
+                            <input type="text" class="time-input" value="00:00:00" id="timeInput">
+                            <button class="btn btn-small" id="addFrameBtn">Agregar Frame</button>
+                        </div>
+                        <div class="frame-buttons">
+                            <button class="btn btn-secondary btn-small" id="prevFrameBtn">Frame Anterior</button>
+                            <button class="btn btn-secondary btn-small" id="nextFrameBtn">Frame Siguiente</button>
+                        </div>
+                    </div>
+                    
+                    <div class="panel-section">
+                        <div class="panel-title">
+                            <h3>Frames de Animación</h3>
+                        </div>
+                        <div class="frames-container" id="framesContainer">
+                            
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="export-tab" class="tab-content">
+                    <div class="panel-section">
+                        <div class="panel-title">
+                            <h3>Exportar Proyecto</h3>
+                        </div>
+                        <div class="export-options">
+                            <div class="export-option">
+                                <h3>Formato YTT</h3>
+                                <p>Para YouTube (con colores)</p>
+                                <button class="btn" id="exportYTTBtn">Exportar YTT</button>
+                            </div>
+                            <div class="export-option">
+                                <h3>Formato ASS</h3>
+                                <p>Advanced SubStation Alpha</p>
+                                <button class="btn" id="exportASSBtn">Exportar ASS</button>
+                            </div>
+                            <div class="export-option">
+                                <h3>Formato SRT</h3>
+                                <p>Subtítulos simples (sin colores)</p>
+                                <button class="btn btn-secondary" id="exportSRTBtn">Exportar SRT</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div id="infoSection" class="info-section">
+            
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
