@@ -3,27 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>YTScribe Animator</title>
+    <title data-i18n="appTitle">YTScribe Animator</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
         <header>
             <div class="header-title">
-                <h1>YTScribe Animator</h1>
-                <p class="tagline">Programa de animación para subtítulos de YouTube</p>
+                <h1 data-i18n="appTitle">YTScribe Animator</h1>
+                <p class="tagline" data-i18n="tagline">Programa de animación para subtítulos de YouTube</p>
             </div>
             <div class="header-controls">
-                <button id="playBtn" class="btn">Reproducir</button>
-                <button id="infoBtn" class="btn btn-secondary">ℹ️ Info</button>
+                <button id="playBtn" class="btn" data-i18n="play">Reproducir</button>
+                <button id="infoBtn" class="btn btn-secondary" data-i18n="info">ℹ️ Info</button>
             </div>
         </header>
         
         <div class="content">
             <div class="canvas-container">
                 <div class="canvas-info">
-                    <span>Tablero: 40×12 píxeles (máximo YouTube)</span>
-                    <span id="cursorPosition">Posición: 0,0</span>
+                    <span data-i18n="boardInfo">Tablero: 40×12 píxeles (máximo YouTube)</span>
+                    <span id="cursorPosition" data-i18n="position">Posición: 0,0</span>
                 </div>
                 <div class="canvas-grid" id="canvasGrid">
                    
@@ -32,10 +32,10 @@
             
             <div class="controls-panel">
                 <div class="tabs">
-                    <button class="tab-btn active" data-tab="tools">Herramientas</button>
-                    <button class="tab-btn" data-tab="palettes">Colores</button>
-                    <button class="tab-btn" data-tab="frames">Frames</button>
-                    <button class="tab-btn" data-tab="export">Exportar</button>
+                    <button class="tab-btn active" data-tab="tools" data-i18n="tools">Herramientas</button>
+                    <button class="tab-btn" data-tab="palettes" data-i18n="colors">Colores</button>
+                    <button class="tab-btn" data-tab="frames" data-i18n="frames">Frames</button>
+                    <button class="tab-btn" data-tab="export" data-i18n="export">Exportar</button>
                 </div>
                 
                 <div id="tools-tab" class="tab-content active">
@@ -43,24 +43,24 @@
                         <div class="tool-options">
                             <div class="tool active" data-tool="pencil">
                                 <span class="icon icon-pencil"></span>
-                                Pincel
+                                <span data-i18n="brush">Pincel</span>
                             </div>
                             <div class="tool" data-tool="eraser">
                                 <span class="icon icon-eraser"></span>
-                                Goma
+                                <span data-i18n="eraser">Goma</span>
                             </div>
                             <div class="tool" data-tool="picker">
                                 <span class="icon icon-picker"></span>
-                                Selector
+                                <span data-i18n="picker">Selector</span>
                             </div>
                             <div class="tool" data-tool="bucket">
                                 <span class="icon icon-bucket"></span>
-                                Cubeta
+                                <span data-i18n="bucket">Cubeta</span>
                             </div>
                         </div>
                         
                         <div class="panel-title">
-                            <h3>Tamaño del pincel</h3>
+                            <h3 data-i18n="brushSize">Tamaño del pincel</h3>
                         </div>
                         <div class="brush-sizes">
                             <div class="brush-size active" data-size="1">1</div>
@@ -71,7 +71,7 @@
                     
                     <div class="panel-section">
                         <div class="panel-title">
-                            <h3>Carácter actual</h3>
+                            <h3 data-i18n="currentChar">Carácter actual</h3>
                         </div>
                         <input type="text" maxlength="1" class="char-input" value="@" id="charInput">
                     </div>
@@ -80,13 +80,13 @@
                 <div id="palettes-tab" class="tab-content">
                     <div class="panel-section">
                         <div class="panel-title">
-                            <h3>Paletas de colores</h3>
+                            <h3 data-i18n="colorPalettes">Paletas de colores</h3>
                             <span id="currentColor" style="display:inline-block;width:20px;height:20px;background:#ffffff;border-radius:3px;"></span>
                         </div>
                         <div class="palettes">
-                            <div class="palette active" data-palette="normal">Normal</div>
-                            <div class="palette" data-palette="neon">Neón</div>
-                            <div class="palette" data-palette="pastel">Pastel</div>
+                            <div class="palette active" data-palette="normal" data-i18n="normal">Normal</div>
+                            <div class="palette" data-palette="neon" data-i18n="neon">Neón</div>
+                            <div class="palette" data-palette="pastel" data-i18n="pastel">Pastel</div>
                         </div>
                         <div class="color-grid" id="colorGrid">
                             
@@ -97,21 +97,21 @@
                 <div id="frames-tab" class="tab-content">
                     <div class="panel-section">
                         <div class="panel-title">
-                            <h3>Administrar frames</h3>
+                            <h3 data-i18n="manageFrames">Administrar frames</h3>
                         </div>
                         <div class="time-control">
                             <input type="text" class="time-input" value="00:00:00" id="timeInput">
-                            <button class="btn btn-small" id="addFrameBtn">Agregar Frame</button>
+                            <button class="btn btn-small" id="addFrameBtn" data-i18n="addFrame">Agregar Frame</button>
                         </div>
                         <div class="frame-buttons">
-                            <button class="btn btn-secondary btn-small" id="prevFrameBtn">Frame Anterior</button>
-                            <button class="btn btn-secondary btn-small" id="nextFrameBtn">Frame Siguiente</button>
+                            <button class="btn btn-secondary btn-small" id="prevFrameBtn" data-i18n="prevFrame">Frame Anterior</button>
+                            <button class="btn btn-secondary btn-small" id="nextFrameBtn" data-i18n="nextFrame">Frame Siguiente</button>
                         </div>
                     </div>
                     
                     <div class="panel-section">
                         <div class="panel-title">
-                            <h3>Frames de Animación</h3>
+                            <h3 data-i18n="animationFrames">Frames de Animación</h3>
                         </div>
                         <div class="frames-container" id="framesContainer">
                             
@@ -122,23 +122,23 @@
                 <div id="export-tab" class="tab-content">
                     <div class="panel-section">
                         <div class="panel-title">
-                            <h3>Exportar Proyecto</h3>
+                            <h3 data-i18n="exportProject">Exportar Proyecto</h3>
                         </div>
                         <div class="export-options">
                             <div class="export-option">
-                                <h3>Formato YTT</h3>
-                                <p>Para YouTube (con colores)</p>
-                                <button class="btn" id="exportYTTBtn">Exportar YTT</button>
+                                <h3 data-i18n="formatYTT">Formato YTT</h3>
+                                <p data-i18n="formatYTTDesc">Para YouTube (con colores)</p>
+                                <button class="btn" id="exportYTTBtn" data-i18n="exportYTT">Exportar YTT</button>
                             </div>
                             <div class="export-option">
-                                <h3>Formato ASS</h3>
-                                <p>Advanced SubStation Alpha</p>
-                                <button class="btn" id="exportASSBtn">Exportar ASS</button>
+                                <h3 data-i18n="formatASS">Formato ASS</h3>
+                                <p data-i18n="formatASSDesc">Advanced SubStation Alpha</p>
+                                <button class="btn" id="exportASSBtn" data-i18n="exportASS">Exportar ASS</button>
                             </div>
                             <div class="export-option">
-                                <h3>Formato SRT</h3>
-                                <p>Subtítulos simples (sin colores)</p>
-                                <button class="btn btn-secondary" id="exportSRTBtn">Exportar SRT</button>
+                                <h3 data-i18n="formatSRT">Formato SRT</h3>
+                                <p data-i18n="formatSRTDesc">Subtítulos simples (sin colores)</p>
+                                <button class="btn btn-secondary" id="exportSRTBtn" data-i18n="exportSRT">Exportar SRT</button>
                             </div>
                         </div>
                     </div>
@@ -151,6 +151,10 @@
         </div>
     </div>
 
+    <script>
+        const userLang = navigator.language || navigator.userLanguage;
+        window.appLanguage = userLang.startsWith('es') ? 'es' : 'en';
+    </script>
     <script src="script.js"></script>
 </body>
-</html>
+                    </html>
